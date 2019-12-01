@@ -1,6 +1,7 @@
 # to run console run iex -S mix
+# to install deps run mix deps.get
 # in IEx run recompile to recompile all code
-# elixi immutability. Send to f-tion with modifing copying data
+# elixir immutability. Send to f-tion with modifing copying data
 defmodule Cards do
   @moduledoc """
   Documentation for Cards.
@@ -41,5 +42,29 @@ defmodule Cards do
   # Cards.deal(deck, 5) # { hand: [], deck: [] } - in ruby
   def deal(deck, hand_size) do
     deck|>Enum.split(hand_size)
+  end
+  
+  def save(deck,filename) do
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
+  end
+  
+  def load(filename) do
+    # {status, binary} = File.read(filename)
+    # case status do
+    #   :ok -> :erlang.binary_to_term(binary)
+    #   :error -> "That file does not exist"
+    # end
+    
+    case File.read(filename) do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _reason} -> "That file does not exist"
+    end
+  end
+  
+  def create_hand(hand_size) do
+    Cards.create_deck
+      |>shuffle
+      |>deal(hand_size)
   end
 end
