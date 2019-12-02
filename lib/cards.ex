@@ -4,6 +4,11 @@
 # to test run mix test
 # in IEx run recompile to recompile all code
 # elixir immutability. Send to f-tion with modifing copying data
+#
+# [] - List
+# {} - Tuples
+# %{} - Map (ObjectStruct)
+# [{}] - keyword list colors = [{:primary,"red"},{:secondary, "green"}]; colors[:primary]
 defmodule Cards do
   @moduledoc """
   Provides methods for creating and handling a deck of cards.
