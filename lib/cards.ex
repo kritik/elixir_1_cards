@@ -5,8 +5,8 @@
 # in IEx run recompile to recompile all code
 # elixir immutability. Send to f-tion with modifing copying data
 #
-# [] - List
-# {} - Tuples
+# [] - List (better for traversals)
+# {} - Tuples (better for reading)
 # %{} - Map (ObjectStruct)
 # [{}] - keyword list colors = [{:primary,"red"},{:secondary, "green"}]; colors[:primary]
 defmodule Cards do
