@@ -9,6 +9,8 @@
 # {} - Tuples (better for reading)
 # %{} - Map (ObjectStruct)
 # [{}] - keyword list colors = [{:primary,"red"},{:secondary, "green"}]; colors[:primary]
+# to send function reference use Enum.map(&mirror_row/1)
+# row ++ [second, first] # joins lists
 defmodule Cards do
   @moduledoc """
   Provides methods for creating and handling a deck of cards.
